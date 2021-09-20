@@ -4,9 +4,12 @@
 - [Hardware](#hardware)
   - [Nodes](#nodes-1)
   - [Central Server](#central-server-1)
+  - [Sensors](#sensors)
+  - [Actuators](#actuators)
 - [Software](#software)
 - [Protocols](#protocols)
 - [Schematics](#schematics)
+- [Flowchart](#flowchart)
 # TM_2021-2022_Open-ECOsystem-Control_OECOC
 Open source ecosystem controller for controlling: -Terrariums -Aquariums -Ponds -Greenhouses -Etc
 
@@ -26,7 +29,14 @@ The server also provides a local and remote platform to view and control the env
 ## Nodes
 
 ## Central Server
+Raspberry pi
+
+## Sensors
+
+## Actuators
+
 
 # Software
 # Protocols
 # Schematics
+# Flowchart
