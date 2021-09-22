@@ -33,11 +33,19 @@ The server also provides a local and remote platform to view and control the env
 
 # Hardware
 ## Nodes
+ESP32/ESP8266 
 
 ## Central Server
 Raspberry pi
 
 ## Sensors
+## Envoiremental
+### BME280
+### DHT22
+### AHT10
+
+## Power
+### CT Clamp
 
 ## Actuators
 
