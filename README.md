@@ -4,8 +4,15 @@
 - [Hardware](#hardware)
   - [Nodes](#nodes-1)
   - [Central Server](#central-server-1)
+  - [End user terminal](#end-user-terminal)
   - [Sensors](#sensors)
+  - [Environmental](#environmental)
+    - [AHT10](#aht10)
+    - [DS18B20](#ds18b20)
+  - [Power](#power)
+    - [CT Clamp](#ct-clamp)
   - [Actuators](#actuators)
+    - [Relay modules](#relay-modules)
 - [Software](#software)
 - [Protocols](#protocols)
 - [Schematics](#schematics)
@@ -36,21 +43,42 @@ The server also provides a local and remote platform to view and control the env
 ESP32/ESP8266 
 
 ## Central Server
-Raspberry pi
+Raspberry pi with homeassistend, esphome, node red.
+
+## End user terminal
+Raspberry pi with touchscreen and homeassistend interface.
 
 ## Sensors
-## Envoiremental
-### BME280
-### DHT22
+## Environmental
 ### AHT10
+The AHT10 will be used to monitor the temperature and humidity.
+### DS18B20
+The DS18B20 will be used to monitor the temperature of water or very humid environments.
 
 ## Power
 ### CT Clamp
 
 ## Actuators
+### Relay modules
 
+![alt text][logo]
+
+[logo]: Doc\Resources\Pictures\Hardware\8ralay_relaymodule.jpg "8 Relay relay module"
 
 # Software
+
+Visual studio code (platformIO)
+ESPhome
+Node-red
+Home assistant
+
+
 # Protocols
+Wifi
+MQTT
+
 # Schematics
+TBD
 # Flowchart
+
+![alt text](Doc\Flowcharts\Mainflow.png "Main Flowchart")
