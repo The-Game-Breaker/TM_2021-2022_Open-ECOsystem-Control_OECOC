@@ -112,6 +112,9 @@
 <text x="1.27" y="11.43" size="2.54" layer="94">Document Number:</text>
 <text x="17.78" y="19.05" size="2.54" layer="94">&gt;DRAWING_NAME</text>
 </symbol>
+<symbol name="DINA3_L" urn="urn:adsk.eagle:symbol:13868/1" library_version="1">
+<frame x1="0" y1="0" x2="388.62" y2="264.16" columns="4" rows="4" layer="94" border-left="no" border-top="no" border-right="no" border-bottom="no"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="DINA4_L" urn="urn:adsk.eagle:component:13919/1" prefix="FRAME" uservalue="yes" library_version="1">
@@ -120,6 +123,21 @@ DIN A4, landscape with extra doc field</description>
 <gates>
 <gate name="G$1" symbol="DINA4_L" x="0" y="0"/>
 <gate name="G$2" symbol="DOCFIELD" x="162.56" y="0" addlevel="must"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DINA3_L" urn="urn:adsk.eagle:component:13931/1" prefix="FRAME" uservalue="yes" library_version="1">
+<description>&lt;b&gt;FRAME&lt;/b&gt;&lt;p&gt;
+DIN A3, landscape with extra doc field</description>
+<gates>
+<gate name="G$1" symbol="DINA3_L" x="0" y="0"/>
+<gate name="G$2" symbol="DOCFIELD" x="287.02" y="0" addlevel="must"/>
 </gates>
 <devices>
 <device name="">
@@ -840,25 +858,31 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="DINA4_L" device=""/>
 <part name="U1" library="Personal" library_urn="urn:adsk.eagle:library:31195655" deviceset="ESP32-DEVKITC-32D" device="" package3d_urn="urn:adsk.eagle:package:31199957/1"/>
 <part name="U$1" library="diy-modules" deviceset="RELAY-8-SRD" device=""/>
+<part name="FRAME2" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="DINA3_L" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 </plain>
 <instances>
-<instance part="FRAME1" gate="G$1" x="0" y="0" smashed="yes"/>
 <instance part="FRAME1" gate="G$2" x="162.56" y="0" smashed="yes">
 <attribute name="LAST_DATE_TIME" x="175.26" y="1.27" size="2.54" layer="94"/>
 <attribute name="SHEET" x="248.92" y="1.27" size="2.54" layer="94"/>
 <attribute name="DRAWING_NAME" x="180.34" y="19.05" size="2.54" layer="94"/>
 </instance>
-<instance part="U1" gate="G$1" x="97.79" y="92.71" smashed="yes">
-<attribute name="NAME" x="82.5328" y="118.7743" size="1.78" layer="95"/>
-<attribute name="VALUE" x="82.5337" y="64.7402" size="1.7799" layer="96"/>
+<instance part="U1" gate="G$1" x="232.41" y="175.26" smashed="yes">
+<attribute name="NAME" x="217.1528" y="201.3243" size="1.78" layer="95"/>
+<attribute name="VALUE" x="217.1537" y="147.2902" size="1.7799" layer="96"/>
 </instance>
-<instance part="U$1" gate="G$1" x="220.98" y="110.49" smashed="yes" rot="R180">
-<attribute name="NAME" x="238.76" y="29.21" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="238.76" y="31.75" size="1.778" layer="95" rot="R180"/>
+<instance part="U$1" gate="G$1" x="351.79" y="171.45" smashed="yes" rot="R180">
+<attribute name="NAME" x="369.57" y="90.17" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="369.57" y="92.71" size="1.778" layer="95" rot="R180"/>
+</instance>
+<instance part="FRAME2" gate="G$1" x="0" y="0" smashed="yes"/>
+<instance part="FRAME2" gate="G$2" x="287.02" y="0" smashed="yes">
+<attribute name="LAST_DATE_TIME" x="299.72" y="1.27" size="2.54" layer="94"/>
+<attribute name="SHEET" x="373.38" y="1.27" size="2.54" layer="94"/>
+<attribute name="DRAWING_NAME" x="304.8" y="19.05" size="2.54" layer="94"/>
 </instance>
 </instances>
 <busses>
