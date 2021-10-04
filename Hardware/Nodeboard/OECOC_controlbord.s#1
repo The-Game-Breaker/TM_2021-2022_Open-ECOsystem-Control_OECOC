@@ -616,6 +616,54 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 <wire x1="22.86" y1="56.515" x2="22.86" y2="57.785" width="0.127" layer="21"/>
 <wire x1="23.495" y1="50.8" x2="24.765" y2="50.8" width="0.127" layer="21"/>
 </package>
+<package name="TEMP-HUM-SENSOR-HTU21D">
+<description>&lt;b&gt;Digital Humidity &amp; Temperature Sensor&lt;/b&gt; based on &lt;b&gt;HTU21D&lt;/b&gt; device</description>
+<wire x1="-5.715" y1="5.08" x2="-4.445" y2="5.08" width="0.127" layer="21"/>
+<text x="0" y="6.35" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-6.35" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
+<pad name="1" x="-5.08" y="3.81" drill="1" shape="square"/>
+<pad name="2" x="-5.08" y="1.27" drill="1"/>
+<pad name="3" x="-5.08" y="-1.27" drill="1"/>
+<pad name="4" x="-5.08" y="-3.81" drill="1"/>
+<wire x1="-4.445" y1="5.08" x2="-3.81" y2="4.445" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="4.445" x2="-3.81" y2="3.175" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="3.175" x2="-4.445" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-4.445" y1="2.54" x2="-3.81" y2="1.905" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="1.905" x2="-3.81" y2="0.635" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="0.635" x2="-4.445" y2="0" width="0.127" layer="21"/>
+<wire x1="-4.445" y1="0" x2="-3.81" y2="-0.635" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-0.635" x2="-3.81" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-1.905" x2="-4.445" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-4.445" y1="-2.54" x2="-3.81" y2="-3.175" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-3.175" x2="-3.81" y2="-4.445" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-4.445" x2="-4.445" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="4.445" x2="-5.715" y2="5.08" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="3.175" x2="-5.715" y2="2.54" width="0.127" layer="21"/>
+<wire x1="-5.715" y1="2.54" x2="-6.35" y2="1.905" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="0.635" x2="-5.715" y2="0" width="0.127" layer="21"/>
+<wire x1="-5.715" y1="0" x2="-6.35" y2="-0.635" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="-1.905" x2="-5.715" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-5.715" y1="-2.54" x2="-6.35" y2="-3.175" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="-4.445" x2="-5.715" y2="-5.08" width="0.127" layer="21"/>
+<text x="-3.175" y="-1.27" size="1.27" layer="21" align="center-left">SCL</text>
+<wire x1="-6.604" y1="5.334" x2="6.604" y2="5.334" width="0.127" layer="21"/>
+<wire x1="6.604" y1="5.334" x2="6.604" y2="-5.334" width="0.127" layer="21"/>
+<wire x1="6.604" y1="-5.334" x2="-6.604" y2="-5.334" width="0.127" layer="21"/>
+<wire x1="-6.604" y1="-5.334" x2="-6.604" y2="5.334" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="4.445" x2="-6.35" y2="3.175" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="1.905" x2="-6.35" y2="0.635" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="-0.635" x2="-6.35" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="-3.175" x2="-6.35" y2="-4.445" width="0.127" layer="21"/>
+<wire x1="-5.715" y1="-5.08" x2="-4.445" y2="-5.08" width="0.127" layer="21"/>
+<text x="-3.175" y="1.27" size="1.27" layer="21" align="center-left">GND</text>
+<text x="-3.175" y="3.81" size="1.27" layer="21" align="center-left">VIN</text>
+<text x="-3.175" y="-3.81" size="1.27" layer="21" align="center-left">SDA</text>
+<hole x="3.81" y="2.54" drill="3"/>
+<wire x1="2.54" y1="-1.27" x2="5.08" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="5.08" y1="-1.27" x2="5.08" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="5.08" y1="-3.81" x2="2.54" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-3.81" x2="2.54" y2="-1.27" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="RELAY-8-SRD">
@@ -810,6 +858,24 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 <circle x="-7.62" y="-66.04" radius="0.359209375" width="0.508" layer="94"/>
 <text x="-1.27" y="-66.04" size="2.54" layer="94" align="center-left">K1</text>
 </symbol>
+<symbol name="TEMP-HUM-SENSOR-HTU21D">
+<description>&lt;b&gt;Digital Humidity &amp; Temperature Sensor&lt;/b&gt; based on &lt;b&gt;HTU21D&lt;/b&gt; device</description>
+<pin name="VIN" x="-15.24" y="5.08" length="middle" direction="pwr"/>
+<pin name="GND" x="-15.24" y="2.54" length="middle" direction="pwr"/>
+<pin name="SCL" x="-15.24" y="0" length="middle"/>
+<pin name="SDA" x="-15.24" y="-2.54" length="middle"/>
+<wire x1="-10.16" y1="10.16" x2="7.62" y2="10.16" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="-10.16" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-7.62" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
+<text x="-10.16" y="15.24" size="1.778" layer="95">&gt;NAME</text>
+<text x="-10.16" y="12.7" size="1.778" layer="95">&gt;VALUE</text>
+<wire x1="7.62" y1="10.16" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="0" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<circle x="0.762" y="-2.54" radius="0.359209375" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="RELAY-8-SRD">
@@ -843,6 +909,30 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 </device>
 </devices>
 </deviceset>
+<deviceset name="TEMP-HUM-SENSOR-HTU21D">
+<description>&lt;b&gt;Digital Humidity &amp; Temperature Sensor&lt;/b&gt; based on &lt;b&gt;HTU21D&lt;/b&gt; device
+&lt;p&gt;More information about &lt;b&gt;HTU21D&lt;/b&gt; device is available here:&lt;br&gt;
+&lt;a href="http://futureeverything.org/wp-content/uploads/2014/05/Humidity-Datasheet.pdf"&gt;http://futureeverything.org/wp-content/uploads/2014/05/Humidity-Datasheet.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;HTU21D&lt;/b&gt; Arudino Library is available here:&lt;br&gt;
+&lt;a href="https://learn.sparkfun.com/tutorials/htu21d-humidity-sensor-hookup-guide/htu21d-library-and-functions"&gt;https://learn.sparkfun.com/tutorials/htu21d-humidity-sensor-hookup-guide/htu21d-library-and-functions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;a href="http://www.ebay.com/sch/htu21d+board"&gt;Click here to find device on ebay.com&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;img alt="photo" src="http://www.diymodules.org/img/device-photo.php?name=TEMP-HUM-SENSOR-HTU21D"&gt;&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="TEMP-HUM-SENSOR-HTU21D" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TEMP-HUM-SENSOR-HTU21D">
+<connects>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="SCL" pad="3"/>
+<connect gate="G$1" pin="SDA" pad="4"/>
+<connect gate="G$1" pin="VIN" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -859,6 +949,7 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 <part name="U1" library="Personal" library_urn="urn:adsk.eagle:library:31195655" deviceset="ESP32-DEVKITC-32D" device="" package3d_urn="urn:adsk.eagle:package:31199957/1"/>
 <part name="U$1" library="diy-modules" deviceset="RELAY-8-SRD" device=""/>
 <part name="FRAME2" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="DINA3_L" device=""/>
+<part name="U$2" library="diy-modules" deviceset="TEMP-HUM-SENSOR-HTU21D" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -883,6 +974,10 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 <attribute name="LAST_DATE_TIME" x="299.72" y="1.27" size="2.54" layer="94"/>
 <attribute name="SHEET" x="373.38" y="1.27" size="2.54" layer="94"/>
 <attribute name="DRAWING_NAME" x="304.8" y="19.05" size="2.54" layer="94"/>
+</instance>
+<instance part="U$2" gate="G$1" x="53.34" y="198.12" smashed="yes">
+<attribute name="NAME" x="43.18" y="213.36" size="1.778" layer="95"/>
+<attribute name="VALUE" x="43.18" y="210.82" size="1.778" layer="95"/>
 </instance>
 </instances>
 <busses>
