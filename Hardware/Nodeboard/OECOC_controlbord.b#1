@@ -2161,11 +2161,6 @@ design rules under a new name.</description>
 <wire x1="-17.78" y1="80.645" x2="-15.24" y2="157.48" width="0" layer="19" extent="1-1"/>
 <wire x1="-97.79" y1="4.52" x2="-17.78" y2="80.645" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="N$2">
-<contactref element="U1" pad="32"/>
-<contactref element="U$1" pad="J1.4"/>
-<wire x1="-17.78" y1="73.025" x2="-72.39" y2="19.76" width="0" layer="19" extent="1-1"/>
-</signal>
 <signal name="N$3">
 <contactref element="U1" pad="31"/>
 <contactref element="U$1" pad="J1.5"/>
@@ -2209,9 +2204,9 @@ design rules under a new name.</description>
 <wire x1="-17.78" y1="78.105" x2="-72.39" y2="12.14" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$7">
-<contactref element="U1" pad="34"/>
 <contactref element="U$1" pad="J1.3"/>
-<wire x1="-17.78" y1="75.565" x2="-72.39" y2="14.68" width="0" layer="19" extent="1-1"/>
+<contactref element="U1" pad="15"/>
+<wire x1="-17.78" y1="75.565" x2="-97.79" y2="14.68" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$8">
 <contactref element="U1" pad="27"/>
@@ -2276,6 +2271,11 @@ design rules under a new name.</description>
 <contactref element="SG1" pad="1"/>
 <contactref element="U1" pad="10"/>
 <wire x1="-97.79" y1="27.38" x2="-120.5992" y2="-10.16" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$2">
+<contactref element="U$1" pad="J1.4"/>
+<contactref element="U1" pad="12"/>
+<wire x1="-17.78" y1="73.025" x2="-97.79" y2="22.3" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
