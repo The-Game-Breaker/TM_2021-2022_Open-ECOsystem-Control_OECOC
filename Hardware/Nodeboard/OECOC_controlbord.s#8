@@ -7002,9 +7002,9 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <wire x1="328.93" y1="168.91" x2="314.96" y2="168.91" width="0.1524" layer="91"/>
 <wire x1="314.96" y1="168.91" x2="314.96" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="314.96" y1="147.32" x2="231.14" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="231.14" y1="147.32" x2="231.14" y2="167.64" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="IO12"/>
-<wire x1="231.14" y1="167.64" x2="212.09" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="147.32" x2="231.14" y2="177.8" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="IO25"/>
+<wire x1="231.14" y1="177.8" x2="212.09" y2="177.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
