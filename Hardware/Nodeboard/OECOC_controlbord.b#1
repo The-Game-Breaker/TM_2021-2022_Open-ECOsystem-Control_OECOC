@@ -2263,9 +2263,9 @@ design rules under a new name.</description>
 <signal name="N$14">
 <contactref element="S2" pad="1"/>
 <contactref element="U$6" pad="7"/>
-<contactref element="U1" pad="13"/>
+<contactref element="U1" pad="12"/>
 <wire x1="-72.87" y1="168.91" x2="-77.47" y2="179.07" width="0" layer="19" extent="1-1"/>
-<wire x1="-97.79" y1="19.76" x2="-72.87" y2="168.91" width="0" layer="19" extent="1-1"/>
+<wire x1="-97.79" y1="22.3" x2="-72.87" y2="168.91" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$11">
 <contactref element="SG1" pad="1"/>
@@ -2274,8 +2274,8 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$2">
 <contactref element="U$1" pad="J1.4"/>
-<contactref element="U1" pad="12"/>
-<wire x1="-17.78" y1="73.025" x2="-97.79" y2="22.3" width="0" layer="19" extent="1-1"/>
+<contactref element="U1" pad="13"/>
+<wire x1="-17.78" y1="73.025" x2="-97.79" y2="19.76" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
