@@ -8,3 +8,6 @@ https://www.rean-connectors.com/en/product/rt4mpr-1
 https://www.studiopieters.nl/esp32-pinout/
 
 https://remoteqth.com/3d-din-rail-mount-clip.php
+
+# 3D files
+https://www.thingiverse.com/thing:3867804/files
