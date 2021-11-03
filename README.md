@@ -3,16 +3,21 @@
   - [Central Server](#central-server)
 - [Hardware](#hardware)
   - [Nodes](#nodes-1)
-  - [Central Server](#central-server-1)
-  - [End user terminal](#end-user-terminal)
-  - [Sensors](#sensors)
-  - [Environmental](#environmental)
-    - [AHT10](#aht10)
       - [Reason of choice](#reason-of-choice)
-    - [DS18B20](#ds18b20)
+  - [Central Server](#central-server-1)
       - [Reason of choice](#reason-of-choice-1)
+  - [End user terminal](#end-user-terminal)
+      - [Reason of choice](#reason-of-choice-2)
+  - [Sensors](#sensors)
+    - [AHT10](#aht10)
+      - [Reason of choice](#reason-of-choice-3)
+    - [DS18B20](#ds18b20)
+      - [Reason of choice](#reason-of-choice-4)
+    - [Reed switches](#reed-switches)
+      - [Reason of choice](#reason-of-choice-5)
   - [Power](#power)
     - [Current sensor](#current-sensor)
+      - [Reason of choice](#reason-of-choice-6)
   - [Actuators](#actuators)
     - [Relay modules](#relay-modules)
 - [Software](#software)
@@ -48,36 +53,72 @@ The server also provides a local and remote platform to view and control the env
 
 # Hardware
 ## Nodes
-ESP32/ESP8266 
+The ESP32 formes the bases for the nodes. Its programmed using ESPHome. It provide a platofrm for the sensors and relays to connect with the central server. The connection between the nodes and sensors is enabled by a carrier board. Pictured below.
+
+![Node Carier board ESP32 not mounted](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/77adc2747cf4b1649ac5a258545d397c07d0ecc4/Doc/Resources/Pictures/Hardware/Node/_MG_0962.JPG)
+
+On this board the sensors get mounted with modular connectors. The
+
+#### Reason of choice
+I chose the esp32 beceause it is a compact and afordable controller with the needed features and pinout. It also allows for future expansion. 
 
 ## Central Server
 Raspberry pi with homeassistend, esphome, node red.
+The raspberry pi acts as a central server and provides a grapical web interface to vieuw and controll the connected devices. It also provides a system to program and update the nodes. Finally it provides a Node-RED interface to program and fine tune the controll and automation features.
+
+
+#### Reason of choice
+I chose this platform beceause I was already partly familiar with it. It is also very flexible and versitile.
+
 
 ## End user terminal
 Raspberry pi with touchscreen and homeassistend interface.
 
+#### Reason of choice
+I wanted to be able to see the interface when standing at the terrariums so this was I am able to see and controll the terrariums easly.
+
 ## Sensors
-## Environmental
+An overvieuw of the various sensors and there uses.
+
+---
+
 ### AHT10
 The AHT10 will be used to monitor the temperature and humidity.
-![AHT10 senor in enclosure](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/77adc2747cf4b1649ac5a258545d397c07d0ecc4/Doc/Resources/Pictures/Hardware/AHT10_sensor/_MG_0965.JPG)
+
+![AHT10 senor in enclosure](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/4ab3e855020c70989ca0b5f24d8b7ef4a6861072/Doc/Resources/Pictures/Hardware/AHT10_sensor/_MG_0965.JPG)
+
 #### Reason of choice
-I chose this sensor because it was a more suitable for this aplication. Its also a lot cheaper than a Bosch BME280 wich was my first choice. The sensor is alsonatively suported in esphome.
+I chose this sensor because it was a more suitable for this aplication. Its also a lot cheaper than a Bosch BME280 wich was my first choice. The sensor is also natively suported in esphome.
 
 ### DS18B20
 The DS18B20 will be used to monitor the temperature of water or very humid environments.
-![Alt Text](url)
+
+![Picture of DS18B20 inclosed in waterproof sleeve with cable](url)
 
 #### Reason of choice
 I chose this sensor its a well known sensor that provides reasonable temperature data for the price.
 
+
+### Reed switches
+These are used to monitor if the terrarium doors is opened. And if its opend to long it should send a notification via home assistand an sound an allarm.
+
+#### Reason of choice
+I chose these because i had them laying around and wanted to use them in a project. It also ads an extra feature to the system that is not typically found in thermostats.
+
+
 ## Power
 ### Current sensor
 The current sensor is used to monitor the power consumption. I also provides the abillity to calculate the running costs.
-![Alt Text]()
+
+#### Reason of choice
+I chose this sensor because it was fairly cheap. However if i were to do this again i would integrate a simerlar sensor on the carier board pcb. This woul make wireing and deploying much easier.
+
+![Used current sensor](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/ad19109421f6b388fefdfc3097e506008aab1973/Doc/Resources/Pictures/Hardware/SEEED-Electricity-Sensor.jpg)
 
 ## Actuators
 ### Relay modules
+The relay module is responsible for controlling the various acturators
+
 ![8 Relay relay module](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/411a693bcd60b609918b9289cb70e5a48a72820e/Doc/Resources/Pictures/Hardware/8ralay_relaymodule.jpg)]
 
 
