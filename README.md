@@ -83,3 +83,5 @@ TBD
 # Flowchart
 
 ![alt text](./Doc\Flowcharts\Mainflow.png "Main Flowchart")
+
+:::image type="content" source="Doc/Flowcharts/Mainflow.png" alt-text="test":::
