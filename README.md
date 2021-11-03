@@ -73,6 +73,7 @@ Node-red
 Home assistant
 
 
+
 # Protocols
 Wifi
 MQTT
@@ -81,4 +82,4 @@ MQTT
 TBD
 # Flowchart
 
-![alt text](Doc\Flowcharts\Mainflow.png "Main Flowchart")
+![alt text](./Doc\Flowcharts\Mainflow.png "Main Flowchart")
