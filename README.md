@@ -82,6 +82,6 @@ MQTT
 TBD
 # Flowchart
 
-![alt text](./Doc\Flowcharts\Mainflow.png "Main Flowchart")
+![alt text](Doc\Flowcharts\Mainflow.png "Main Flowchart")
 
-:::image type="content" source="Doc/Flowcharts/Mainflow.png" alt-text="test":::
+![alt text](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/7ecdbfd31a25872af0eda6d846d4bfb034369db6/Doc/Flowcharts/Mainflow.png "Main Flowchart")
