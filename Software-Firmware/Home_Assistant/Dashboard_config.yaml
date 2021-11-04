@@ -1,0 +1,40 @@
+views:
+  - title: terra
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.terra_1_waterproof_temperature_1
+          - entity: sensor.terra_1_waterproof_temperature_2
+          - entity: sensor.terra_1_cage_humidity_1
+          - entity: sensor.terra_1_cage_humidity_2
+          - entity: sensor.terra_1_cage_temperature_1
+          - entity: sensor.terra_1_cage_temperature_2
+          - entity: binary_sensor.terra_1_door_1
+          - entity: binary_sensor.terra_1_door_2
+          - entity: sensor.terra_1_measured_current
+      - type: entities
+        entities:
+          - entity: switch.terra_1_relay_1
+          - entity: switch.terra_1_relay_2
+          - entity: switch.terra_1_relay_3
+          - entity: switch.terra_1_relay_5
+          - entity: switch.terra_1_relay_4
+          - entity: switch.terra_1_relay_6
+          - entity: switch.terra_1_relay_7
+          - entity: switch.terra_1_relay_8
+        show_header_toggle: true
+      - type: thermostat
+        entity: climate.terra_1_thermostat_climate_controller
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.terra_1_buzzer
+        icon: hass:alert
+        show_icon: true
+      - type: entities
+        entities:
+          - sensor.terra_1_consumption
+      - type: entities
+        entities:
+          - input_number.slider1
