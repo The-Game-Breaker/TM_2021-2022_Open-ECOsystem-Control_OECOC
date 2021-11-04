@@ -22,12 +22,16 @@
     - [Relay modules](#relay-modules)
 - [Software](#software)
   - [Visual studio code](#visual-studio-code)
-  - [ESPhome](#esphome)
-  - [Node-red](#node-red)
-  - [Home assistant](#home-assistant)
   - [Openscad](#openscad)
   - [Fusion360](#fusion360)
+  - [Home assistant](#home-assistant)
+  - [ESPhome](#esphome)
+  - [Node-RED](#node-red)
+  - [InfluxDB](#influxdb)
 - [Protocols](#protocols)
+  - [Wifi](#wifi)
+  - [Home Assistant api](#home-assistant-api)
+  - [MQTT](#mqtt)
 - [Schematics](#schematics)
 - [Flowchart](#flowchart)
 # TM_2021-2022_Open-ECOsystem-Control_OECOC
@@ -57,7 +61,7 @@ The ESP32 formes the bases for the nodes. Its programmed using ESPHome. It provi
 
 ![Node Carier board ESP32 not mounted](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/77adc2747cf4b1649ac5a258545d397c07d0ecc4/Doc/Resources/Pictures/Hardware/Node/_MG_0962.JPG)
 
-On this board the sensors get mounted with modular connectors. The
+On this board the sensors get mounted with modular connectors.
 
 #### Reason of choice
 I chose the esp32 beceause it is a compact and afordable controller with the needed features and pinout. It also allows for future expansion. 
@@ -96,7 +100,7 @@ The DS18B20 will be used to monitor the temperature of water or very humid envir
 ![Picture of DS18B20 inclosed in waterproof sleeve with cable](url)
 
 #### Reason of choice
-I chose this sensor its a well known sensor that provides reasonable temperature data for the price.
+I chose this sensor beceause it is a well known sensor that provides reasonable temperature data for the price.
 
 
 ### Reed switches
@@ -125,22 +129,44 @@ The relay module is responsible for controlling the various acturators
 # Software
 
 ## Visual studio code
-## ESPhome
-## Node-red
-## Home assistant
+Visual studio code is used to document and manage the files of the project. Initially it was planned to be used to program the project aswell but this turned out to be unnecessary.
+
+I chose because im familiar with it.
+
 ## Openscad
+Openscad was used to create some of the 3D models such as the DIN mounts. I used a script made by remoteqth.com. Because openscad is code based it makes it easy to create different models based on the same "sourse model" simply by using different parameters.
+
 ## Fusion360
+Fusion360 was used to create some of the more custom models such as the node mainboard mounting plate.
+
+## Home assistant
+Home assistant is used as the central server for the OECOC system. It also provides a ui for interacting with the OECOC system. Finally it hosts some of the needed software. This way we haven an all in on package for controlling and programming the system.
+## ESPhome
+ESPHome is used as the main programmer  for the nodes. Not only does it make it easy to create a new and custum node it also provides a simple way to update OTA. 
+It runs directly on the home assistand server. I chose Node-RED because it 
+## Node-RED
+Node-RED is used as the backbone for dealing with the incoming data and automating actions. I chose it beceause it is easy to work with and very adaptable. It also runs directly on on the home assistand server.
+## InfluxDB
+I decided to use InfluxDB to log the incoming data to get a better understanding of the temperature flow. At the moment I don't use the captured data for anything besides bieng able to look at it. This data could become very usefull in newer iterations of the project. InfluxDB was chosen because it is easy to use and is designed to work with timed data.
+
+It also runs on the home assistand server.
 
 
 
 
 # Protocols
-Wifi
-MQTT
-Home Assistant api
+## Wifi
+Used to communicate between the main server node and web interface clients.
+## Home Assistant api
+THe home Assistant API is used to communicate with every thing on the main server and web interface.
+## MQTT
+MQTT is not really used but is considered for later intergration.
+
+
 
 # Schematics
 ![Schematic](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/77adc2747cf4b1649ac5a258545d397c07d0ecc4/Doc/Resources/Pictures/Hardware/Node/Schematic_node.png)
+
 # Flowchart
 
 ![Main Flowchart](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/7ecdbfd31a25872af0eda6d846d4bfb034369db6/Doc/Flowcharts/Mainflow.png)
