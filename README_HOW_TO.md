@@ -36,14 +36,27 @@ For this, you will need an instalation of home assistant. This can be installed 
 - Influxdb
 
 Once installed, move on to the next step.
-# ESPHome configuration
-Once ESPHome is installed, go to it in home assistant and start it. 
+# 3 ESPHome configuration
+Once ESPHome is installed, go to it in home assistant and start it. Make a new device and select esp32 then import the configuration file  found [here](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/ee62c0f1d5eed604a494e42f3039b4c4e979fb77/Software-Firmware/Node/terra-1.yaml). 
+
+Edit the configuration file so it fits your setup. Plug in your ESP32 then click install and select  `Plug into the computer running ESPhome Dashboard`. Select the correct pord and ESPHome should start flashing the ESP32. This only has to be done once for the first time afterwards you can use the `OTA` option to install configuration.
 
 # 4 Node-RED configuration
 
 Once Node-RED is installed, go to it in home assistant and configure it if necessary, then start it. Once Node-RED is started, open it and import the flow provided [here](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/ee62c0f1d5eed604a494e42f3039b4c4e979fb77/Software-Firmware/Node-RED/flows.json). Check and change the configuration so it fits your needs and setup.
 
-# 3 Configuring Home assistant
+# 5 Configuring Home assistant
 
 Configure your home assistant dashboard to your liking or open the raw configuration editor and paste the code found in this [file](https://github.com/The-Game-Breaker/TM_2021-2022_Open-ECOsystem-Control_OECOC/blob/4365aa8a5759891aa45c2a583b3c3437a4dd4da0/Software-Firmware/Home_Assistant/Dashboard_config.yaml).
 
+# 6 Connecting it all together
+
+Now install your ESP32 on its carrier board and install the sensors in your terrarium.
+
+# 7 Mains connections
+
+**WARING** working with mains voltage is dangerous only proceed if you know what you are doing and take the necessary safety procousions.
+
+Connect all your terrarium devices to their respective relays on the board.
+
+# 8 Enjoy your new automated terrarium
