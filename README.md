@@ -1,4 +1,20 @@
+
+# TM_2021-2022_Open-ECOsystem-Control_OECOC
+Open source ecosystem controller for controlling:
+- Terrariums 
+- Aquariums 
+- Ponds
+- Aquaponics
+- Greenhouses 
+- Etc
+
+It is divided in the following:
+- Nodes
+- Central server
+- Terminal
+---
 - [TM_2021-2022_Open-ECOsystem-Control_OECOC](#tm_2021-2022_open-ecosystem-control_oecoc)
+  - [- Terminal](#--terminal)
   - [Nodes](#nodes)
   - [Central Server](#central-server)
 - [Hardware](#hardware)
@@ -34,18 +50,6 @@
   - [MQTT](#mqtt)
 - [Schematics](#schematics)
 - [Flowchart](#flowchart)
-# TM_2021-2022_Open-ECOsystem-Control_OECOC
-Open source ecosystem controller for controlling:
-- Terrariums 
-- Aquariums 
-- Ponds
-- Aquaponics
-- Greenhouses 
-- Etc
-
-It is divided in the following:
-- Nodes
-- Central server
 
 ## Nodes
 Nodes are used to read the environmental sensors and communicate the information to the central server. They are also used to control several actuators to influence the environment.
