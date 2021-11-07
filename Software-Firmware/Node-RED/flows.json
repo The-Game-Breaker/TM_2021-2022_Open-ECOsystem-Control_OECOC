@@ -1,0 +1,1279 @@
+[
+    {
+        "id": "a9479f862a304ae8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b4dbfca3e2fe9027",
+        "type": "influxdb out",
+        "z": "a9479f862a304ae8",
+        "influxdb": "34a2cba3768b2a92",
+        "name": "",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 610,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "100c47890401478c",
+        "type": "mqtt in",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "topic": "+",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "9a7041772bde51d9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 770,
+        "y": 940,
+        "wires": [
+            [
+                "5052d5dec50eed93"
+            ]
+        ]
+    },
+    {
+        "id": "5052d5dec50eed93",
+        "type": "debug",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "84e5f018e3bcff10",
+        "type": "trigger-state",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 0,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "climate.terra_1_thermostat_climate_controller",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [],
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "x": 220,
+        "y": 760,
+        "wires": [
+            [
+                "29895f4e01261f88"
+            ],
+            [
+                "29895f4e01261f88"
+            ]
+        ]
+    },
+    {
+        "id": "29895f4e01261f88",
+        "type": "change",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "data.event.new_state.attributes.hvac_action",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 760,
+        "wires": [
+            [
+                "af24590151e21bb6"
+            ]
+        ]
+    },
+    {
+        "id": "af24590151e21bb6",
+        "type": "switch",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "idle",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "heating",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "cooling",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 690,
+        "y": 760,
+        "wires": [
+            [
+                "fe7d0d802c4e6153",
+                "4ccf288ac81f1e46"
+            ],
+            [
+                "25e97cd53f41a3a0",
+                "02d0cc718128fb68"
+            ],
+            [
+                "aa158972a70b3d35",
+                "b2ce89e47d65aadd"
+            ]
+        ]
+    },
+    {
+        "id": "25e97cd53f41a3a0",
+        "type": "api-call-service",
+        "z": "a9479f862a304ae8",
+        "name": "Heat_on",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.terra_1_relay_1",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1020,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eda33653f3cb61a1",
+        "type": "server-state-changed",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.terra_1_cage_temperature_1",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "measurement",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "b4dbfca3e2fe9027"
+            ]
+        ]
+    },
+    {
+        "id": "85422aeef9052370",
+        "type": "server-state-changed",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.terra_1_cage_temperature_2",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "measurement",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 200,
+        "y": 200,
+        "wires": [
+            [
+                "b4dbfca3e2fe9027"
+            ]
+        ]
+    },
+    {
+        "id": "38d11f5e31e8b5fa",
+        "type": "server-state-changed",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.terra_1_waterproof_temperature_1",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "measurement",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 210,
+        "y": 20,
+        "wires": [
+            [
+                "b4dbfca3e2fe9027",
+                "b5fd96fd01efcf81"
+            ]
+        ]
+    },
+    {
+        "id": "8212a96e9c85cff8",
+        "type": "server-state-changed",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.terra_1_waterproof_temperature_2",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "measurement",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 210,
+        "y": 80,
+        "wires": [
+            [
+                "b4dbfca3e2fe9027",
+                "b5fd96fd01efcf81"
+            ]
+        ]
+    },
+    {
+        "id": "8abcdcd1fd908848",
+        "type": "server-state-changed",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.terra_1_cage_humidity_1",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "measurement",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 180,
+        "y": 260,
+        "wires": [
+            [
+                "b4dbfca3e2fe9027"
+            ]
+        ]
+    },
+    {
+        "id": "9fe5719fad34bad4",
+        "type": "server-state-changed",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.terra_1_cage_humidity_2",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "measurement",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "b4dbfca3e2fe9027"
+            ]
+        ]
+    },
+    {
+        "id": "1f365a0f8d143926",
+        "type": "server-state-changed",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.terra_1_door_1",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "measurement",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 180,
+        "y": 420,
+        "wires": [
+            [
+                "b4dbfca3e2fe9027"
+            ]
+        ]
+    },
+    {
+        "id": "298a8b1ccde91022",
+        "type": "server-state-changed",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.terra_1_door_2",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "measurement",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "b4dbfca3e2fe9027"
+            ]
+        ]
+    },
+    {
+        "id": "8e700961aeb6302d",
+        "type": "server-state-changed",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.terra_1_measured_current",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "measurement",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 190,
+        "y": 540,
+        "wires": [
+            [
+                "b4dbfca3e2fe9027",
+                "9d231a55e7d9d884"
+            ]
+        ]
+    },
+    {
+        "id": "b5fd96fd01efcf81",
+        "type": "debug",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9d231a55e7d9d884",
+        "type": "calculator",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "mult",
+        "constant": "230",
+        "round": false,
+        "decimals": 0,
+        "x": 540,
+        "y": 580,
+        "wires": [
+            [
+                "d8c1b3ef24ee2498"
+            ]
+        ]
+    },
+    {
+        "id": "115c9b4ba8d9eb09",
+        "type": "ha-entity",
+        "z": "a9479f862a304ae8",
+        "name": "Terra-1-Consumption",
+        "server": "443562753896f0c6",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "Terra-1-Consumption"
+            },
+            {
+                "property": "device_class",
+                "value": "energy"
+            },
+            {
+                "property": "icon",
+                "value": "hass:flash"
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": "kWh"
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [
+            {
+                "property": "state_class",
+                "value": "measurement",
+                "valueType": "str"
+            },
+            {
+                "property": "last_reset",
+                "value": "1970-01-01T00:00:00+00:00",
+                "valueType": "str"
+            }
+        ],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "$entity().state ? \"on\": \"off\"",
+        "outputPayloadType": "jsonata",
+        "x": 1060,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8c1b3ef24ee2498",
+        "type": "calculator",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "inputMsgField": "payload",
+        "outputMsgField": "payload",
+        "operation": "div",
+        "constant": "1000",
+        "round": false,
+        "decimals": 0,
+        "x": 670,
+        "y": 580,
+        "wires": [
+            [
+                "115c9b4ba8d9eb09"
+            ]
+        ]
+    },
+    {
+        "id": "02d0cc718128fb68",
+        "type": "api-call-service",
+        "z": "a9479f862a304ae8",
+        "name": "Cool_off",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.terra_1_relay_2",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1020,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa158972a70b3d35",
+        "type": "api-call-service",
+        "z": "a9479f862a304ae8",
+        "name": "Heat_off",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.terra_1_relay_1",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1020,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2ce89e47d65aadd",
+        "type": "api-call-service",
+        "z": "a9479f862a304ae8",
+        "name": "Cool_on",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.terra_1_relay_2",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1020,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe7d0d802c4e6153",
+        "type": "api-call-service",
+        "z": "a9479f862a304ae8",
+        "name": "Heat_off",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.terra_1_relay_1",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1020,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4ccf288ac81f1e46",
+        "type": "api-call-service",
+        "z": "a9479f862a304ae8",
+        "name": "Cool_off",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.terra_1_relay_2",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1020,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c4ad0fbc559d68b2",
+        "type": "server-state-changed",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "sensor.terra_1_cage_humidity_1",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "num",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "measurement",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 180,
+        "y": 1120,
+        "wires": [
+            [
+                "fe75a97584d1025c"
+            ]
+        ]
+    },
+    {
+        "id": "d962e55c91718f52",
+        "type": "trigger-state",
+        "z": "a9479f862a304ae8",
+        "name": "",
+        "server": "443562753896f0c6",
+        "version": 0,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "input_number.slider1",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "",
+                "propertyValue": "new_state.state"
+            }
+        ],
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": true,
+        "state_type": "str",
+        "x": 140,
+        "y": 1220,
+        "wires": [
+            [
+                "68f10a78326d3d6b"
+            ],
+            [
+                "68f10a78326d3d6b"
+            ]
+        ]
+    },
+    {
+        "id": "fe75a97584d1025c",
+        "type": "switch",
+        "z": "a9479f862a304ae8",
+        "name": "Humidity control",
+        "property": "state",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "gte",
+                "v": "payload",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 460,
+        "y": 1120,
+        "wires": [
+            [
+                "1c07dfe5c58fd9f6",
+                "d7eaca6181767298"
+            ],
+            [
+                "e5844cb2436c1017",
+                "c8f82d6d12b06a25"
+            ]
+        ]
+    },
+    {
+        "id": "68f10a78326d3d6b",
+        "type": "change",
+        "z": "a9479f862a304ae8",
+        "name": "Set flow.state",
+        "rules": [
+            {
+                "t": "set",
+                "p": "state",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c07dfe5c58fd9f6",
+        "type": "api-call-service",
+        "z": "a9479f862a304ae8",
+        "name": "Humidifier_off",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.terra_1_relay_3",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 700,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d7eaca6181767298",
+        "type": "api-call-service",
+        "z": "a9479f862a304ae8",
+        "name": "Cool_fan_on",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.terra_1_relay_2",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 690,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c8f82d6d12b06a25",
+        "type": "api-call-service",
+        "z": "a9479f862a304ae8",
+        "name": "Humidifier_On",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.terra_1_relay_3",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 700,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5844cb2436c1017",
+        "type": "api-call-service",
+        "z": "a9479f862a304ae8",
+        "name": "Cool_fan_off",
+        "server": "443562753896f0c6",
+        "version": 3,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.terra_1_relay_2",
+        "data": "",
+        "dataType": "jsonata",
+        "mergecontext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 690,
+        "y": 1180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f5425decda676c9f",
+        "type": "ui_spacer",
+        "z": "a9479f862a304ae8",
+        "name": "spacer",
+        "group": "bd52b2aba45a157f",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "34a2cba3768b2a92",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "9a7041772bde51d9",
+        "type": "mqtt-broker",
+        "name": "localMQTT",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "443562753896f0c6",
+        "type": "server",
+        "name": "Home Assistant",
+        "version": 1,
+        "legacy": false,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true
+    },
+    {
+        "id": "bd52b2aba45a157f",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "8d919f9ec8ba98e4",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8d919f9ec8ba98e4",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]

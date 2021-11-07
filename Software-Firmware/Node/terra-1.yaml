@@ -1,0 +1,187 @@
+substitutions:
+  devicename: terra-1
+  upper_devicename: Terra-1
+  
+esphome:
+  name: $devicename
+  platform: ESP32
+  board: esp32dev
+
+
+
+
+    
+# Enable logging
+logger:
+
+#mqtt config
+#mqtt:
+ # broker: 192.168.61.152
+ # port: 1883
+  #username: homeassistant
+  #password: dae2fai5tohfeelae3ualiengiequoMoThapheecat3thahc4ohtooth7ahsoobo
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "7760e8c43b722bac02a467c5b3b3c2c1"
+
+wifi:
+  networks:
+  - ssid: "Protected CEX"
+    password: "geeninternet"
+  - ssid: "embed"
+    password: "weareincontrol"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "terra-1 Fallback Hotspot"
+    password: "TGMDdD0ybK60"
+
+captive_portal:
+
+
+dallas:
+  - pin: 32
+
+i2c:
+    sda: 21
+    scl: 22
+    scan: true
+    id: bus_a
+sensor:
+ 
+  - platform: aht10
+    i2c_id: bus_a
+    address: 0x38
+    temperature:
+      name: ${upper_devicename} Cage Temperature 1
+      id:  Cage_Temperature_1
+    humidity:
+      name: ${upper_devicename} Cage Humidity 1
+    update_interval: 5s
+  
+  - platform: aht10
+    i2c_id: bus_a
+    address: 0x39
+    temperature:
+      name: ${upper_devicename} Cage Temperature 2
+    humidity:
+      name: ${upper_devicename} Cage Humidity 2
+    update_interval: 5s
+    
+  - platform: dallas
+    address: 0x1503213189DBA828
+    name: ${upper_devicename} Waterproof Temperature 1
+
+  - platform: dallas
+    address: 0xCD0321318AF84228
+    name: ${upper_devicename} Waterproof Temperature 2
+    
+  - platform: ct_clamp
+    sensor: adc_sensor
+    name: ${upper_devicename} Measured Current
+    update_interval: 2s
+    filters:
+      - calibrate_linear:
+          # Measured value of 0 maps to 0A
+          - 0 -> 0
+          # Known load: 0.02A
+          # Value shown in logs: 0.22A
+          - 0.02 -> 0.22
+
+  # Example source sensor
+  - platform: adc
+    pin: 36
+    id: adc_sensor
+    
+switch:
+  - platform: gpio
+    pin: 23
+    name: ${upper_devicename} Relay 1
+
+  - platform: gpio
+    pin: 19
+    name: ${upper_devicename} Relay 2
+    id: Relay2
+  - platform: gpio
+    pin: 18
+    name: ${upper_devicename} Relay 3
+    
+  - platform: gpio
+    pin: 17
+    name: ${upper_devicename} Relay 4
+    
+  - platform: gpio
+    pin: 16
+    name: ${upper_devicename} Relay 5
+
+  - platform: gpio
+    pin: 25
+    name: ${upper_devicename} Relay 6
+
+  - platform: gpio
+    pin: 13
+    name: ${upper_devicename} Relay 7
+    
+  - platform: gpio
+    pin: 15
+    name: ${upper_devicename} Relay 8
+
+  - platform: gpio
+    pin: 26
+    name: ${upper_devicename} Buzzer
+
+
+
+binary_sensor:
+  - platform: gpio
+    name: ${upper_devicename} Door 1
+    pin:
+      number: 27
+      inverted: true
+      mode: INPUT_PUllUP
+ 
+  - platform: gpio
+    name: ${upper_devicename} Door 2
+    pin:
+      number: 14
+      inverted: true
+      mode: INPUT_PUllUP
+      
+number:
+  - platform: template
+    name: ${upper_devicename} writeaway
+    id: writeaway
+    optimistic: true
+    min_value: 0
+    max_value: 100
+    step: 1
+climate:
+  - platform: thermostat
+    name: ${upper_devicename} Thermostat Climate Controller
+    sensor: Cage_Temperature_1
+    visual:
+      min_temperature: 10 °C
+      max_temperature: 60 °C
+      temperature_step: 0.5 °C
+    default_target_temperature_low: 20 °C
+    default_target_temperature_high: 22 °C
+    min_cooling_off_time: 3s
+    min_cooling_run_time: 3s
+    min_heating_off_time: 3s
+    min_heating_run_time: 3s
+    min_idle_time: 3s
+    cool_action:
+      - number.set:
+          id: writeaway
+          value: 1
+    heat_action:
+      - number.set:
+          id: writeaway
+          value: 2
+    idle_action:
+      - number.set:
+          id: writeaway
+          value: 1
